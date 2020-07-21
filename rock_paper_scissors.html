@@ -1,0 +1,109 @@
+<script>
+    var rock = "Rock";
+    var paper = "Paper";
+    var scissors = "Scissors";
+    var tie = "Tie";
+    var win = "Win";
+    var lose = "Lose";
+
+    function rock(){}
+    function computerPlay(){
+        OnethroughThree = Math.floor(Math.random() * Math.flor(3))
+        if(OnethroughThree = 0){
+            return rock;
+        }
+        else if(OnethroughThree = 1){
+            return paper;
+        }
+        else{
+            return scissors;
+        }
+    }
+
+    function playerSelection(){
+        var persons_choice = prompt("Enter rock, paper, or scissors.");
+        var persons_choice = persons_choice.toLowerCase().replace(/\s/g, '');
+        if(persons_choice == "rock"){
+            return rock;
+        }
+        else if(persons_choice == "paper"){
+            return paper;
+        }
+        else{
+            return scissors;
+        }
+    }
+
+    function computerSelection(){
+        return computerPlay;
+    }
+
+    function playRound(){
+        player = playerSelection();
+        console.log(`You chose ${player}`)
+        computer = computerSelection();
+        if(player == rock){
+            if(computer == rock){
+                return tie;
+            }
+            else if(computer == paper){
+                return lose;
+            }
+            else{
+                return win;
+            }
+        }
+        else if(player == paper){
+            if(computer == rock){
+                return win;
+            }
+            else if(computer == paper){
+                return tie;
+            }
+            else{
+                return lose;
+            }
+        }
+        else{
+            if(computer == rock){
+                return lose;
+            }
+            else if(computer == paper){
+                return win;
+            }
+            else{
+                return tie;
+            }
+        }
+    }
+
+    function game(){
+        var human = 0;
+        var computer = 0;
+        for(var i = 0; i < 5; i++){
+            var round = playRound();
+            if(round == tie){
+                console.log("You tied that round")
+                continue;
+            }
+            else if(round == lose){
+                        console.log("You lost that round")
+                        computer +=1;
+            }
+            else{
+                console.log("You won that round")
+                human += 1;
+            }
+        }
+        if(human > computer){
+            console.log("You Won!")
+        }
+        else if(human == computer){
+            console.log("You Tied!")
+        }
+        else{
+            console.log("You Lost!")
+        }
+    }
+    
+</script>
